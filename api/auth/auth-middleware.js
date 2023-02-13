@@ -48,9 +48,10 @@ async function usernameBostami(req, res, next) {
 async function usernameVarmi(req, res, next) {
   try {
     const present = await Users.goreBul({ username: req.body.username });
-    if (!present.length > 0) {
+    if (!present.length) {
       next({ status: 401, message: "Geçersiz kriter" });
     } else {
+      req.user = present[0];
       next();
     }
   } catch (err) {
