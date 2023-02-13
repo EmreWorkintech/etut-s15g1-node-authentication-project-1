@@ -34,6 +34,7 @@ const Users = require("./users-model");
 // Diğer modüllerde kullanılabilmesi için routerı "exports" nesnesine eklemeyi unutmayın.
 router.get("/", sinirli, (req, res, next) => {
   try {
+    
     Users.bul().then((user) => {
       res.status(200).json(user);
     });
