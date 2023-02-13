@@ -1,3 +1,7 @@
+const Users =require("../users/users-model");
+
+
+
 /*
   Kullanıcının sunucuda kayıtlı bir oturumu yoksa
 
@@ -6,8 +10,8 @@
     "mesaj": "Geçemezsiniz!"
   }
 */
-function sinirli() {
-
+function sinirli(req,res,next) {
+next()
 }
 
 /*
@@ -18,8 +22,8 @@ function sinirli() {
     "mesaj": "Username kullaniliyor"
   }
 */
-function usernameBostami() {
-
+function usernameBostami(req,res,next) {
+  next()
 }
 
 /*
@@ -30,8 +34,8 @@ function usernameBostami() {
     "mesaj": "Geçersiz kriter"
   }
 */
-function usernameVarmi() {
-
+function usernameVarmi(req,res,next) {
+  next()
 }
 
 /*
@@ -42,8 +46,13 @@ function usernameVarmi() {
     "mesaj": "Şifre 3 karakterden fazla olmalı"
   }
 */
-function sifreGecerlimi() {
-
+function sifreGecerlimi(req,res,next) {
+  next()
 }
 
 // Diğer modüllerde kullanılabilmesi için fonksiyonları "exports" nesnesine eklemeyi unutmayın.
+module.exports={sinirli,
+  usernameBostami,
+  usernameVarmi,
+  sifreGecerlimi
+}
